@@ -2,7 +2,7 @@ import uvicorn
 from typing import Union
 from fastapi import FastAPI
 from dotenv import load_dotenv
-from api.v1.auth import router as auth_router
+from app.api.v1.auth import router as auth_router
 from sqlmodel import SQLModel
 from settings.database import engine
 from collections.abc import AsyncIterator
@@ -16,7 +16,6 @@ load_dotenv()
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     SQLModel.metadata.create_all(engine)
-    print("create SQLmodel meta data")
     yield
 
 app = FastAPI(lifespan=lifespan)

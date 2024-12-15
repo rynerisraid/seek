@@ -17,7 +17,6 @@ class Settings(BaseSettings):
     DB_USER: str = os.getenv("DB_USER")
     DB_PASSWORD: str = os.getenv("DB_PASSWORD")
     
-
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
