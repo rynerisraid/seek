@@ -5,4 +5,5 @@ description = ""
 requires-python = ">=3.10,<4.0"
 dependencies = [
     "fastapi[standard]>=0.114.0"
+    "bcrypt<=4.0.1"
 ]

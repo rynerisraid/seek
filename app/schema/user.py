@@ -9,7 +9,7 @@ class UserCreate(BaseModel):
     role: str = "member"
 
 class UserResponse(BaseModel):
-    id: str
+    id: int
     username: str
     email: str
     created_at: datetime

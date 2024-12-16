@@ -7,6 +7,7 @@ from sqlmodel import SQLModel
 from app.settings.database import engine
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+from app.middleware.user import current_user_middleware
 # import sys
 # sys.path.append('.')
 
@@ -21,6 +22,9 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
 app = FastAPI(lifespan=lifespan)
 app.include_router(auth_router, prefix="/api/v1/auth",tags=["auth"])
 
+
+app.middleware("http")(current_user_middleware)
+app.middleware("https")(current_user_middleware)
 
 @app.get('/')
 async def read_root():
