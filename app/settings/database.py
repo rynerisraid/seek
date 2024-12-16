@@ -2,6 +2,7 @@ from app.settings.config import settings
 from sqlmodel import create_engine
 from sqlmodel.ext.asyncio.session import AsyncSession
 from app.models.user import *
+from app.models.workspace import *
 
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.ext.asyncio import AsyncSession
