@@ -10,7 +10,7 @@ class UserRole(str,Enum):
 
     
 class User(SQLModel, table=True):
-    id: str = Field(default_factory=uuid.uuid4, primary_key=True, index=True)
+    id: Optional[int] = Field(default=None, primary_key=True)
     username: str = Field(unique=True, index=True)
     email: str = Field(index=True, nullable=False, unique=True, regex=r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
     password: str = Field(nullable=False)

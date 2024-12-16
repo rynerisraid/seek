@@ -30,8 +30,7 @@ async def sign_up(user: UserCreate,session:AsyncSession = Depends(get_session)):
     
     # 创建新用户
     hashed_password = pwd_context.hash(user.password)
-    db_user = User(id=str(uuid.uuid4()),
-                   username=user.username, 
+    db_user = User(username=user.username, 
                    email=user.email, 
                    password=hashed_password)
     session.add(db_user)
