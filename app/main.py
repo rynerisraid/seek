@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from dotenv import load_dotenv
 from app.api.v1.auth import router as auth_router
 from sqlmodel import SQLModel
-from settings.database import engine
+from app.settings.database import engine
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 # import sys

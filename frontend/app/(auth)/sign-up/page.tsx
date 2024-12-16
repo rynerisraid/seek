@@ -1,5 +1,6 @@
-const SignUpPage = () => {
-  return <div>SignUpPage</div>;
-};
+// auth/sign-up/page.tsx
+import SignUpForm from "./signup-form";
 
-export default SignUpPage;
+export default function SignUpPage() {
+  return <SignUpForm />;
+}

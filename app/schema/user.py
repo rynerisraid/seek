@@ -1,16 +1,22 @@
+from fastapi import status
 from pydantic import BaseModel
-
+from uuid import UUID
+from datetime import datetime
 class UserCreate(BaseModel):
     username: str
     email: str
-    password: str
+    password: str  # 仅在创建时使用
+    role: str = "member"
 
 class UserResponse(BaseModel):
-    id: int
+    id: str
     username: str
     email: str
+    created_at: datetime
+    updated_at: datetime
+    
 
-class LoginRequest(BaseModel):
+class SignInRequest(BaseModel):
     username: str
     password: str
 
